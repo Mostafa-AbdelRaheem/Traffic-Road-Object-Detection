@@ -1,0 +1,17 @@
+my_project:
+  train:
+    batch_size: 2
+    classes:
+    - Car
+    - Different-Traffic-Sign
+    - Red-Traffic-Light
+    - Pedestrian
+    - Warning-Sign
+    - Pedestrian-Crossing
+    - Green-Traffic-Light
+    - Prohibition-Sign
+    - Truck
+    - Speed-Limit-Sign
+    - Motorcycle 
+    epochs: 20
+    model: yolov8n.pt

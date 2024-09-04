@@ -1,0 +1,23 @@
+torch==2.0.1+cu117 
+torchvision==0.15.2+cu117
+# numpy>=1.23.0<2.0.0 # temporary patch for compat errors https://github.com/ultralytics/yolov5/actions/runs/9538130424/job/26286956354
+matplotlib>=3.3.0
+opencv-python>=4.6.0
+pillow>=7.1.2
+pyyaml>=5.3.1
+requests>=2.23.0
+scipy>=1.4.1
+torch>=1.8.0
+torchvision>=0.9.0
+tqdm>=4.64.0 # progress bars
+psutil # system utilization
+py-cpuinfo # display CPU info
+pandas>=1.1.4
+seaborn>=0.11.0 # plotting
+ultralytics-thop>=2.0.0 # FLOPs computation https://github.com/ultralytics/thop
+# pip install torch==2.0.1+cu117 torchvision==0.15.2+cu117 -f https://download.pytorch.org/whl/torch_stable.html
+
+
+pip install awscli==1.33.42
+pip install mlflow==2.2.1
+pip install 'dvc[s3]==3.53.2'
