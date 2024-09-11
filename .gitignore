@@ -164,4 +164,7 @@ cython_debug/
 data/
 models/
 runs/
+mlruns/
 yolov8n.pt
+validations/
+dvc.lock
