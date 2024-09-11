@@ -1,4 +1,18 @@
-my_project:
+vars:
+  - classes:
+    - Car
+    - Different-Traffic-Sign
+    - Red-Traffic-Light
+    - Pedestrian
+    - Warning-Sign
+    - Pedestrian-Crossing
+    - Green-Traffic-Light
+    - Prohibition-Sign
+    - Truck
+    - Speed-Limit-Sign
+    - Motorcycle 
+
+YOLOv8n_custom_1:
   train:
     batch_size: 2
     classes:
@@ -13,5 +27,23 @@ my_project:
     - Truck
     - Speed-Limit-Sign
     - Motorcycle 
-    epochs: 20
+    epochs: 6
     model: yolov8n.pt
+
+  validate:
+    classes:
+    - Car
+    - Different-Traffic-Sign
+    - Red-Traffic-Light
+    - Pedestrian
+    - Warning-Sign
+    - Pedestrian-Crossing
+    - Green-Traffic-Light
+    - Prohibition-Sign
+    - Truck
+    - Speed-Limit-Sign
+    - Motorcycle 
+    model: yolov8n.pt
+    batch_size: 2
+    conf_thres: 0.3
+    iou_thres: 0.45

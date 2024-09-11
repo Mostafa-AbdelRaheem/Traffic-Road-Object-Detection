@@ -1,19 +1,36 @@
 vars:
   - my_project_name: YOLOv8n_custom_1
-  
-train:
-  cmd: 
-  - python  src/train_yolo.py  --train-data data/train/images/ --val-data data/valid/images/ --expname ${my_project_name}
-  - find data/train/${my_project_name}/images/ -name "*.npy" -delete
-  deps:
-  - src/train_yolo.py
-  - data/train/${my_project_name}/images/
-  - data/train/${my_project_name}/labels/
-  - src/yolov8/
-  - data/valid/${my_project_name}/images/
-  - data/valid/${my_project_name}/labels/
-  outs:
-  - models/${my_project_name}/
-  - runs/train/${my_project_name}/
-  params:
-  - jobs.${my_project_name}.train
+
+stages:
+  train:
+    cmd: 
+      - python src/train_yolo.py ${YOLOv8n_custom_1.train} --train-data data/train/images/ --val-data data/valid/images/  --expname ${my_project_name}
+    deps:
+      - src/train_yolo.py
+      - data/train/images/
+      - data/train/labels/
+      - src/yolov8/
+      - data/valid/images/
+      - data/valid/labels/
+    params:
+      - YOLOv8n_custom_1
+    outs:
+      - models/${my_project_name}/
+      - runs/train/${my_project_name}/
+  validate:
+      cmd: python src/val_yolo.py  ${YOLOv8n_custom_1.validate} --expname ${my_project_name}
+      deps:
+      - src/val_yolo.py
+      - data/train/images/
+      - data/train/labels/
+      - data/valid/images/
+      - data/valid/labels/
+      - data/test/images/
+      - data/test/labels/
+      - models/${my_project_name}/
+      - src/yolov8/
+      params:
+      - YOLOv8n_custom_1
+      outs:
+      - validations/${my_project_name}/
+      - runs/val/${my_project_name}/
