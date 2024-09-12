@@ -1,9 +1,13 @@
+import sys
+import os
+# Ensure the yolov8 directory is in the Python path
+sys.path.append(os.path.join(os.path.dirname(__file__), 'yolov8'))
+
 from yolov8.ultralytics.models.yolo.detect import DetectionTrainer
 import torch
 import yaml
 from pathlib import Path
 import argparse
-import os
 import shutil
 
 def main():
