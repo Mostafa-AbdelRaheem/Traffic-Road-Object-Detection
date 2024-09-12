@@ -167,4 +167,3 @@ runs/
 mlruns/
 yolov8n.pt
 validations/
-dvc.lock
